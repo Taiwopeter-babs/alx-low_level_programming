@@ -27,8 +27,8 @@ int main(void)
 			if (dg1 + dg2 == 197)
 				break;
 
-			putchar(' ');
 			putchar(',');
+			putchar(' ');
 		}
 	}
 	putchar('\n');
