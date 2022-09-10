@@ -3,7 +3,8 @@
 /**
  * main - prints unique combunation of two two-digit numbers
  *
- * Description:
+ * Description: digit 1(one) is added to dg2 after every iteration
+ * making sure that uniqueness is key in the combinations.
  * Return: 0
  */
 int main(void)
