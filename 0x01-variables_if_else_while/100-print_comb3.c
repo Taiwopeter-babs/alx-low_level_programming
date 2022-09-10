@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - prints possible combo of numbers
+ * main - prints possible unique combination of two digits
  *
  * Description: cannot print 01 and 10. They are regarded
  * as same combination
