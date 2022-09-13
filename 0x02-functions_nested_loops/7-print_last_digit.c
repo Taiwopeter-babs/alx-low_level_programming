@@ -30,7 +30,7 @@ int print_last_digit(int n)
 	}
 	else if (n == 0)
 	{
-		remainder = n % 10;
+		remainder = 0;
 		_putchar(remainder + '0');
 		return (remainder);
 	}
