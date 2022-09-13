@@ -12,8 +12,19 @@
 int print_last_digit(int n)
 {
 	int remainder;
+	int val = -1;
+	int abs_n;
 
-	remainder = n % 10;
+	if (n < 0)
+	{
+		abs_n = n * val;
+		remainder = abs_n % 10;
+	}
+	else if (n > 0)
+	{
+		remainder = n % 10;
+	}
+
 
 	_putchar(remainder + '0');
 	return (remainder);
