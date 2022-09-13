@@ -24,6 +24,8 @@ int print_last_digit(int n)
 	{
 		remainder = n % 10;
 	}
+	else if (n == 0)
+		remainder = n % 10;
 
 
 	_putchar(remainder + '0');
