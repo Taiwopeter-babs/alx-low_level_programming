@@ -12,12 +12,12 @@
 int print_last_digit(int n)
 {
 	int remainder;
-	int val = -1;
-	int abs_n;
+/*	int val = -1;*/
+	unsigned int abs_n;
 
 	if (n < 0)
 	{
-		abs_n = n * val;
+		abs_n = n < 0 ? -((unsigned int)(n)) : +((unsigned int)(n));
 		remainder = abs_n % 10;
 		_putchar(remainder + '0');
 		return (remainder);
