@@ -40,6 +40,8 @@ void times_table(void)
 				else if (i * j < 10)
 				{
 					_putchar(i * j + '0');
+					_putchar(' ');
+					_putchar(' ');
 				}
 			}
 		}
@@ -47,3 +49,4 @@ void times_table(void)
 	}
 
 }
+
