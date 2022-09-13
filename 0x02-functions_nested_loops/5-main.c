@@ -7,10 +7,6 @@
  */
 int main(void)
 {	
-	print_sign(789776);
-	/*_putchar(t + '0');*/
-	print_sign(-87);
-	/*_putchar(t + '0');*/
-	print_sign(0);
+	print_sign(98);
 	return (0);
 }
