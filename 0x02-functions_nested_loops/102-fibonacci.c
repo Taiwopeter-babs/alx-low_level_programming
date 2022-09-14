@@ -7,24 +7,24 @@
 int main(void)
 {
 	int i;
-	unsigned int num1, num2, new_num;
+	unsigned long int num1, num2, new_num;
 
 	num1 = 1;
 	num2 = 2;
 
-	printf("%d, %d, ", num1, num2);
+	printf("%lu, %lu, ", num1, num2);
 
-	for (i = 3; i < 50; i++)
+	for (i = 3; i <= 50; i++)
 	{
 		new_num = num1 + num2;
-		
-		printf("%u", new_num);
+
+		printf("%lu", new_num);
 
 		num1 = num2;
 
 		num2 = new_num;
 
-		if (i == 49)
+		if (i == 50)
 			printf("\n");
 		else
 			printf(", ");
