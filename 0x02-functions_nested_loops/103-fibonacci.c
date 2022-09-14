@@ -7,7 +7,9 @@
  */
 int main(void)
 {
-	unsigned long int num1, num2, new_num, _limit, sum = 0;
+	unsigned long int num1, num2, new_num, _limit;
+
+	unsigned int t_sum;
 
 	num1 = 1;
 	num2 = 2;
@@ -15,18 +17,24 @@ int main(void)
 	_limit = 4000000;
 
 
-	while (num1 <= _limit)
+	while (num2 < _limit)
 	{
-		sum += num1;
-
 		new_num = num1 + num2;
+
+		/*if (new_num > 4000000)
+			break;*/
+
+		if ((new_num % 2) == 0)
+			t_sum += new_num;
+
+		/*new_num = num1 + num2;*/
 
 		num1 = num2;
 
 		num2 = new_num;
 
 	}
-	printf("%lu\n", sum);
+	printf("%d\n", t_sum);
 
 	return (0);
 
