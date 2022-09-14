@@ -2,7 +2,6 @@
 
 /**
  * times_table - prints multiplication table to 9
- *
  * Return: 0 (success)
  */
 void times_table(void)
@@ -15,36 +14,27 @@ void times_table(void)
 		for (j = 0; j <= 9; j++)
 		{
 			_product = i * j;
-			if (j < 9)
+			if (_product >= 10)
 			{
-				if (_product >= 10)
-				{
-					_putchar((_product / 10) + '0');
-					_putchar((_product % 10) + '0');
-				}
-				else
-				{
-					_putchar(' ');
-					_putchar(_product + '0');
-				}
-				_putchar(',');
-				_putchar(' ');
-			}
-			else
-			{
-				if (_product >= 10)
-				{
 				_putchar((_product / 10) + '0');
 				_putchar((_product % 10) + '0');
-				}
-				else
+				if (j < 9)
 				{
+					_putchar(',');
+					_putchar(' ');
+				}
+			}
+			if (_product < 10)
+			{
 				_putchar(' ');
 				_putchar(_product + '0');
+				if (j < 9)
+				{
+					_putchar(',');
+					_putchar(' ');
 				}
 			}
 		}
 		_putchar('\n');
 	}
 }
-
