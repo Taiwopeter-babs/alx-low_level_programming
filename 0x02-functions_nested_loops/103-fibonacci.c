@@ -11,8 +11,8 @@ int main(void)
 
 	float t_sum;
 
-	num1 = 1;
-	num2 = 2;
+	num1 = 0;
+	num2 = 1;
 
 	_limit = 4000000;
 	new_num = num1 + num2;
