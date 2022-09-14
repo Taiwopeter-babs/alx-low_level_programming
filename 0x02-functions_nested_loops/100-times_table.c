@@ -26,11 +26,6 @@ void print_times_table(int n)
 			if (_product <= 9)
 				_putchar(' ');
 
-			if (_product > n && _product < 10)
-			{
-				_putchar(' ');
-				_putchar((_product % 10) + '0');
-			}
 
 			if (_product >= 100)
 			{
