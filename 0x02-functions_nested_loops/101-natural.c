@@ -14,7 +14,7 @@ int main(void)
 			t_sum += i;
 	}
 	printf("%d\n", t_sum);
-	
+
 	return (0);
 
 }
