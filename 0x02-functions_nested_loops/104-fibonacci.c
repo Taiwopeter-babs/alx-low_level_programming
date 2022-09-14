@@ -7,14 +7,14 @@
 int main(void)
 {
 	int i;
-	unsigned long int num1, num2, new_num;
+	unsigned long num1, num2, new_num;
 
 	num1 = 1;
 	num2 = 2;
 
 	printf("%lu, %lu, ", num1, num2);
 
-	for (i = 3; i <= 98; i++)
+	for (i = 3; i <= 85; i++)
 	{
 		new_num = num1 + num2;
 
@@ -24,7 +24,7 @@ int main(void)
 
 		num2 = new_num;
 
-		if (i == 98)
+		if (i == 85)
 			printf("\n");
 		else
 			printf(", ");
