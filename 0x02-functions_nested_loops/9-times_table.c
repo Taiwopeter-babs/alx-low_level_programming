@@ -21,18 +21,11 @@ void times_table(void)
 			{
 				_putchar((_product / 10) + '0');
 				_putchar((_product % 10) + '0');
-				if (j < 9)
-				{
-					/*_putchar(',');*/
-					/*_putchar(' ');*/
-				}
 			}
 			if (_product <= 9 && j < 9)
 			{
 				_putchar(' ');
 				_putchar(_product + '0');
-				/*_putchar(',');*/
-				/*_putchar(' ');*/
 			}
 			else if (_product <= 9 && j >= 9)
 			{
