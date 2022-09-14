@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * main - compute the sum of multiples of 3 & 5
  * Return: 0 (success)
