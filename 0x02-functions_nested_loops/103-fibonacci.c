@@ -9,32 +9,29 @@ int main(void)
 {
 	unsigned long int num1, num2, new_num, _limit;
 
-	unsigned int t_sum;
+	float t_sum;
 
 	num1 = 1;
 	num2 = 2;
 
 	_limit = 4000000;
+	new_num = num1 + num2;
 
-
-	while (num2 < _limit)
+	while (new_num < _limit)
 	{
 		new_num = num1 + num2;
 
-		/*if (new_num > 4000000)
-			break;*/
 
 		if ((new_num % 2) == 0)
 			t_sum += new_num;
 
-		/*new_num = num1 + num2;*/
 
 		num1 = num2;
 
 		num2 = new_num;
 
 	}
-	printf("%d\n", t_sum);
+	printf("%.0f\n", t_sum);
 
 	return (0);
 
