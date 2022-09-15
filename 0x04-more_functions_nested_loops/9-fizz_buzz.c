@@ -8,7 +8,7 @@
  * multiples of 3 for fizz, multiples of 5 for buzz, and multiples
  * of both 3 and 5 for fizzbuzz
  * Example:
- *	main() --> 1, 2, fizz, 4, buzz,..., 14, fizzbuzz...
+ *	main() --> 1, 2, Fizz, 4, Buzz,..., 14, FizzBuzz...
  * Return: 0
  */
 int main(void)
@@ -26,7 +26,7 @@ int main(void)
 		else
 			printf("%d ", i);
 	}
-	putchar('\n');
+	printf("\n");
 
 	return (0);
 }
