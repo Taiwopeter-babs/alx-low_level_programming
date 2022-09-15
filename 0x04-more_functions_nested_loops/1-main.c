@@ -11,9 +11,9 @@ int main(void)
 {
 	char c;
 
-	c = 'f';
+	c = 10;
 
-	printf("c has value 3: %d\n", _isdigit(c));
+	printf("c: %d\n", _isdigit(c));
 
 	/*_putchar(c);*/
 

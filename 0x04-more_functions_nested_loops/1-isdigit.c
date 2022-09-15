@@ -4,7 +4,7 @@
  * _isdigit - checks for digit 0-9
  * @c: parameter to check
  *
- * Return: integer; 1 if c is upper case, otherwise 0
+ * Return: integer; 1 if c is digit, otherwise 0
  */
 int _isdigit(int c)
 {
