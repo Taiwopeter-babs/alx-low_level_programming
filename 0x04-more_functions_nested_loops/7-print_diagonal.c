@@ -13,7 +13,7 @@
  */
 void print_diagonal(int n)
 {
-	int i, j;
+	signed long int i, j;
 
 	if (n > 0)
 	{
@@ -24,7 +24,6 @@ void print_diagonal(int n)
 				if (i == j)
 				{
 					_putchar('\\');
-					/*_putchar(' ');*/
 				}
 				else if (i > j)
 				{
