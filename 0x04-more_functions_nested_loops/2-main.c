@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * main - calls the function in code block
@@ -8,14 +9,10 @@
 
 int main(void)
 {
-	char c;
 
-	c = _isupper('a');
-	_putchar(c + '0');
+	printf("%d\n", mul(3, 6));
 
-	c = _isupper('Z');
-	_putchar(c + '0');
-	_putchar('\n');
+	/*_putchar(c);*/
 
 	return (0);
 }
