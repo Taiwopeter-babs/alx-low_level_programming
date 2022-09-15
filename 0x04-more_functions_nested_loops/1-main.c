@@ -11,7 +11,7 @@ int main(void)
 {
 	char c;
 
-	c = 10;
+	c = '1';
 
 	printf("c: %d\n", _isdigit(c));
 
