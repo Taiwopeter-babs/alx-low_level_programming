@@ -7,18 +7,13 @@
  * @month: month in number format
  * @day: day of month
  * @year: year
+ * Description: leap year % 4 == 0, century-leap-year % 100 == 0, 
+ * % 400 == 0. if the month is > February, add 1 to account for leap year.
  * Return void
  */
 
 void print_remaining_days(int month, int day, int year)
 {
-	/**
-	 * leap year - can be divided by 4
-	 * or if it's divisible by 100 without remainder,
-	 * it should also be divisible by 400 without remainder
-	 * Correction: if the month is greater than 2 i.e march++, and
-	 * days >= 60, add one to make up for the leap year.
-	 */
 
 	if ((year % 4 == 0 || year % 400 == 0) && !(year % 100 == 0))
 	{
@@ -41,12 +36,13 @@ void print_remaining_days(int month, int day, int year)
 		printf("Day of the year: %d\n", day);
 		printf("Remaining days: %d\n", 366 - day);
 
-
 	}
 	else if ((year % 4 == 0 && year % 100 == 0) && !(year % 400 == 0))
 	{
 		if (month == 2 && day == 60)
+		{
 			printf("Invalid date: %02d/%02d/%04d\n", month, day - 31, year);
+		}
 	}
 	else
 	{
