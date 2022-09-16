@@ -10,9 +10,9 @@ int main(void)
 {
 	int month, day, year;
 
-	month = 2;
-	day = 29;
-	year = 2020;
+	month = 9;
+	day = 16;
+	year = 2022;
 
 	printf("Date: %02d/%02d/%04d\n", month, day, year);
 
