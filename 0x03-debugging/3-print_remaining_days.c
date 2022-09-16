@@ -12,35 +12,35 @@
 
 void print_remaining_days(int month, int day, int year)
 {
+	/**
+	 * leap year - can be divided by 4
+	 * or if it's divisible by 100 without remainder,
+	 * it should also be divisible by 400 without remainder
+	 * Correction: if the month is greater than 2 i.e march++, and
+	 * days >= 60, add one to make up for the leap year.
+	 */
+
 	if ((year % 4 == 0 || year % 400 == 0) && !(year % 100 == 0))
 	{
-		if (month >= 2 && day >= 60)
+		if (month > 2 && day >= 60)
 		{
-			printf("Day of the year: %d\n", day);
-			printf("Remaining days: %d\n", 366 - day);
-
 			day++;
 		}
-		else
-		{
-			printf("Day of the year: %d\n", day);
-			printf("Remaining days: %d\n", 366 - day);
-		}
+
+		printf("Day of the year: %d\n", day);
+		printf("Remaining days: %d\n", 366 - day);
+
 	}
 	else if ((year % 4 == 0 && year % 100 == 0) && (year % 400 == 0))
 	{
-		if (month >= 2 && day >= 60)
+		if (month > 2 && day >= 60)
 		{
-			printf("Day of the year: %d\n", day);
-			printf("Remaining days: %d\n", 366 - day);
-
 			day++;
 		}
-		else
-		{
-			printf("Day of the year: %d\n", day);
-			printf("Remaining days: %d\n", 366 - day);
-		}
+
+		printf("Day of the year: %d\n", day);
+		printf("Remaining days: %d\n", 366 - day);
+
 
 	}
 	else if ((year % 4 == 0 && year % 100 == 0) && !(year % 400 == 0))
