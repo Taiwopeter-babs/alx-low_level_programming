@@ -11,7 +11,7 @@ int main(void)
 	int s[] = {1, 4, 5, 7, 11, 13, 17};
 
 
-	print_array(s, -1);
+	print_array(s, 0);
 
 	return (0);
 }
