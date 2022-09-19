@@ -12,7 +12,6 @@ int main(void)
 
 	str = "my First strlendgdrfhfhgh!";
 	_puts(str);
-	_putchar('\n');
 
 	return (0);
 }

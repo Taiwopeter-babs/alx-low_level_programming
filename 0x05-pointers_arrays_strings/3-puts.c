@@ -3,7 +3,7 @@
 /**
  * _puts - prints a string
  * @str: paramter to be printed
- * Return: nothiing
+ * Return: void
  */
 void _puts(char *str)
 {
@@ -12,4 +12,5 @@ void _puts(char *str)
 		_putchar(*str);
 		str++;
 	}
+	_putchar('\n');
 }
