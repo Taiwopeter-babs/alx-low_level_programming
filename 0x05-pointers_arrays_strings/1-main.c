@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * main - calls the function
@@ -7,6 +8,12 @@
  */
 int main(void)
 {
-	print_alphabet();
+	int x, y;
+
+	x = 76;
+	y = 89;
+
+	swap_int(&x, &y);
+	printf("x is now: %d\ny is now: %d\n", x, y);
 	return (0);
 }
