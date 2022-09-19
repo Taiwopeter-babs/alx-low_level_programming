@@ -9,12 +9,10 @@
 int main(void)
 {
 	char *str;
-	int len;
 
 	str = "my First strlendgdrfhfhgh!";
+	_puts(str);
+	_putchar('\n');
 
-	len = _strlen(str);
-
-	printf("len: %d\n", len);
 	return (0);
 }
