@@ -24,7 +24,7 @@ int main(void)
 
 	_password = rand();
 
-	printf("%d\n", _password);
+	printf("%i\n", _password);
 
 	return (0);	
 }
