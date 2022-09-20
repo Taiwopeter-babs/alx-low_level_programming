@@ -14,7 +14,7 @@
  */
 int main(void)
 {
-	int seed, *_password;
+	int seed, _password;
 
 	seed = time(0);
 
@@ -22,9 +22,9 @@ int main(void)
 	
 	/* _password = (int *) malloc(10 * sizeof(int)); */
 
-	*_password = rand();
+	_password = rand();
 
-	printf("%d\n", *_password);
+	printf("%d\n", _password);
 
 	return (0);	
 }
