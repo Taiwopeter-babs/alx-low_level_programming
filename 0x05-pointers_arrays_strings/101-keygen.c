@@ -10,14 +10,16 @@
  */
 int main(void)
 {
-	int _password;
+	int *_password;
 
-	srand(time(0));
-	
-	_password = rand();
+	srand(time(NULL));
 
-	printf("%i\n", _password);
+	_password = (int *) malloc(10 * sizeof(int));
 
-	return (0);	
+	*_password = rand();
+
+	printf("%i\n", *_password);
+
+	return (0);
 }
 
