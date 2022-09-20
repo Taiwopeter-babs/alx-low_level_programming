@@ -11,49 +11,15 @@
  */
 int main(void)
 {
+	int *_password;
 
-	int index = 0, make_random = 0, len_of_password = 10;
+	srand((unsigned int) (time(NULL)));
 
-	char letters[] = "abcdefghijklmnopqrstuvwxyz";
-	char LETTERS[] = "ABCDEFGHIJLKMNOPQRSTUVWXYZ";
-	char digits[] = "0123456789";
-	char symbols[] = ",.!@#$";
+	_password = (int *) malloc(10 * sizeof(int));
 
-	srand((unsigned int)(time(NULL)));
+	*_password = rand();
 
-	char _password[len_of_password];
-
-	make_random = rand() % 4;
-
-	for (index = 0; index < len_of_password; index++)
-	{
-		if (make_random == 1)
-		{
-			_password[index] = digits[rand() % 10];
-			make_random = rand() % 4;
-			printf("%c", _password[index]);
-		}
-		else if (make_random == 2)
-		{
-			_password[index] = symbols[rand() % 6];
-			make_random = rand() % 4;
-			printf("%c", _password[index]);
-		}
-		else if (make_random == 3)
-		{
-			_password[index] = LETTERS[rand() % 26];
-			make_random = rand() % 4;
-			printf("%c", _password[index]);
-		}
-		else if (make_random == 4)
-		{
-			_password[index] = letters[rand() % 26];
-			make_random = rand() % 4;
-			printf("%c", _password[index]);
-		}
-	}
-	printf("\n");
-
+	printf("%i\n", *_password);
 
 	return (0);
 }
