@@ -14,8 +14,6 @@ int main(void)
 
 	srand(time(0));
 	
-	/* _password = (int *) malloc(10 * sizeof(int)); */
-
 	_password = rand();
 
 	printf("%i\n", _password);
