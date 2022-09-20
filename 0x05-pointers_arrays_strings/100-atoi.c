@@ -21,7 +21,8 @@ int _atoi(char *s)
 	num = 0;
 
 	/**
-	 * check num if num is a digit, add to num, if space; break addition
+	 * check num if num is a digit, add to num. if there's a space,
+	 *  after the digit, break addition
 	 * For the sign, check if an element in the is a '-'.
 	 */
 	for (i = 0; s[i] != '\0'; i++)
