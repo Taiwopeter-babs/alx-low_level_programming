@@ -20,7 +20,7 @@ int main(void)
 
 	srand(seed);
 	
-	_password = (int *) malloc(10 * sizeof(int));
+	/* _password = (int *) malloc(10 * sizeof(int)); */
 
 	*_password = rand();
 
