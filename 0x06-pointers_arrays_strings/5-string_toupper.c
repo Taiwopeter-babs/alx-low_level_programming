@@ -1,5 +1,4 @@
 #include "main.h"
-int string_length(char *string);
 
 /**
  * string_toupper - converts all the letters to uppercase
