@@ -23,12 +23,14 @@ char *cap_string(char *ptr)
 	{
 		for (i = 0; i < 13; i++)
 		{
-			if (*(ptr + _count) == word_sep[i])
-			{
-				if (*(ptr + (_count + 1)) >= 'a' && (*(ptr + (_count + 1)) <= 'z'))
-					*(ptr + (_count + 1)) = (*(ptr + (_count + 1)) - 'a') + 'A';
-				break;
-			}
+		if (*(ptr + _count) == word_sep[i])
+		{
+		if (*(ptr + (_count + 1)) >= 'a' && (*(ptr + (_count + 1)) <= 'z'))
+		{
+		*(ptr + (_count + 1)) = (*(ptr + (_count + 1)) - 'a') + 'A';
+		}
+		break;
+		}
 		}
 		_count++;
 	}
