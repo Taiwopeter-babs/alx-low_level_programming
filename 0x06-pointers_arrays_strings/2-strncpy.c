@@ -7,7 +7,7 @@ int string_length(char *string);
  * @dest: destination string
  * @n: limting number of bytes
  * Description: The string copied from src replaces the n number
- * of characters in the destination. If the amount of bytes copied 
+ * of characters in the destination. If the amount of bytes copied
  * from src is less than n, the resulting string will have additions of
  * null characters.
  * Return: destination string
