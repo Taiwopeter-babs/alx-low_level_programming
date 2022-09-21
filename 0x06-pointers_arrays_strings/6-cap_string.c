@@ -27,6 +27,7 @@ char *cap_string(char *ptr)
 			{
 				if (*(ptr + (_count + 1)) >= 'a' && (*(ptr + (_count + 1)) <= 'z'))
 					*(ptr + (_count + 1)) = (*(ptr + (_count + 1)) - 'a') + 'A';
+				break;
 			}
 		}
 		_count++;
