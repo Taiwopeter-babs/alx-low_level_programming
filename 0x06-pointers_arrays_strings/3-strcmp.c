@@ -24,8 +24,6 @@ int _strcmp(char *s1, char *s2)
 			break;
 		}
 		flag += *(s1 + i) - *(s2 + i);
-		s1++;
-		s2++;
 		i++;
 	}
 
