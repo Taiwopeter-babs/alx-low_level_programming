@@ -9,14 +9,13 @@ char *string_toupper(char *ptr)
 {
 	int i;
 
-	for (i = 0; ptr[i] != '\0'; i++)
+	for (i = 0; *(ptr + i) != '\0'; i++)
 	{
-		if (ptr[i] >= 'a' && ptr[i] <= 'z')
+		if (*(ptr + i) >= 'a' && *(ptr + i) <= 'z')
 		{
-			ptr[i] = (ptr[i] - 'a') + 'A';
+			*(ptr + i) = (*(ptr + i) - 'a') + 'A';
 		}
 	}
-	_putchar(ptr[i]);
 
 	return (ptr);
 
