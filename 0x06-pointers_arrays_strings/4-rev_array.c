@@ -4,26 +4,27 @@ void print_number(int n);
 /**
  * reverse_array - reverses the content of an array
  * @a: array
- * @n: number of elements in the array
+ * @n: number of elements in the array.
  * Return: void
  */
 void reverse_array(int *a, int n)
 {
-	 int i;
+	 unsigned int i;
+	 unsigned int n_o_e = n;
 	 int temp;
 
-	for (i = 0; i < (n / 2); i++)
+	for (i = 0; i < (n_o_e / 2); i++)
 	{
 		temp = a[i];
-		a[i] = a[n - i - 1];
-		a[n - i - 1] = temp;
+		a[i] = a[n_o_e - i - 1];
+		a[n_o_e - i - 1] = temp;
 
 	}
-	for (i = 0; i < n; i++)
+	for (i = 0; i < n_o_e; i++)
 	{
 		print_number(a[i]);
 
-		if (i < n - 1)
+		if (i < n_o_e - 1)
 		{
 			_putchar(',');
 			_putchar(' ');
