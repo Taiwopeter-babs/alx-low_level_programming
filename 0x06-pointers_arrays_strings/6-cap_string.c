@@ -1,39 +1,37 @@
 #include "main.h"
 
 /**
- * cap_string - Captalize words all the words of a string
- * @ptr: pointer to string
- * Description: word_sep[] is an array of word separators ascii codes
- * Return: to pointer string
+ * cap_string - Captalize all the words of a string
+ * @ptr: pointer to string to capitalize
+ * Description: word_sep[] is an array of word separators.
+ * capitalize is set as true, so it 'short-circuits' the condition
+ * and executes the expression
+ * Return: to resulting pointer string
  */
-char *cap_string(char *ptr)
+char *cap_string(char *str)
 {
-	int i, _count = 0;
+	char *ptr = str;
+	int i, capitalize = 1;
 
-	int word_sep[] = {125, 123, 41, 40, 34, 63, 33, 46, 59, 44, 10, 9, 32};
-
-	/* convert all words to lowercase */
-	if (*(ptr + _count) >= 'a' && *(ptr + _count) <= 'z')
+	char word_sep[] = " \t\n,.!?\"{}()";
+	
+	/* capitalize is true, so all the first letters are capitalized */
+	while (*str)
 	{
-		*(ptr + _count) = (*(ptr + _count) - 'A') + 'a';
-	}
-	_count++;
+		if (capitalize && *str >= 'a' && *str <= 'z')
+			*str = (*str - 'a') + 'A';
 
-	while (*(ptr + _count) != '\0')
-	{
-		for (i = 0; i < 13; i++)
+		capitalize = 0;
+		
+		for (i = 0; i < 12; i++)
 		{
-		if (*(ptr + _count) == word_sep[i])
-		{
-		if (*(ptr + (_count + 1)) >= 'a' && (*(ptr + (_count + 1)) <= 'z'))
-		{
-		*(ptr + (_count + 1)) = (*(ptr + (_count + 1)) - 'a') + 'A';
+			if (*str == word_sep[i])
+				capitalize = 1;
 		}
-		break;
-		}
-		}
-		_count++;
+		str++;
 	}
+	
+
 
 	return (ptr);
 }
