@@ -2,7 +2,7 @@
 
 /**
  * cap_string - Captalize all the words of a string
- * @ptr: pointer to string to capitalize
+ * @str: pointer to string to capitalize
  * Description: word_sep[] is an array of word separators.
  * capitalize is set as true, so it 'short-circuits' the condition
  * and executes the expression
@@ -14,7 +14,7 @@ char *cap_string(char *str)
 	int i, capitalize = 1;
 
 	char word_sep[] = " \t\n,.!?\"{}()";
-	
+
 	/* capitalize is true, so all the first letters are capitalized */
 	while (*str)
 	{
@@ -22,7 +22,7 @@ char *cap_string(char *str)
 			*str = (*str - 'a') + 'A';
 
 		capitalize = 0;
-		
+
 		for (i = 0; i < 12; i++)
 		{
 			if (*str == word_sep[i])
@@ -30,7 +30,7 @@ char *cap_string(char *str)
 		}
 		str++;
 	}
-	
+
 
 
 	return (ptr);
