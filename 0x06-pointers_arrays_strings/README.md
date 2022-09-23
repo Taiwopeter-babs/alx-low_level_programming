@@ -16,13 +16,11 @@ void print_buffer(char *b, int size)
 ```
 
 - The statements in the loop  from line __ln 20__:
-|                   |		       |
-| 	Statements  |      Action      |
-| ------------------|------------------|
-|	  	    |  	               |
-|````     	    |		       |
-|print("%08x:" i);  | prints the hexadecimal format of starting characters with max-width 8 |
-|````		    |		       |
+```c     	
+print("%08x:" i);   
+
+```
+The above statement prints the hexadecimal format of starting characters with max-width 8		    		       
 __ln21__: if the index of the character % 2 == 0, add space before printing
 __ln22__: if the index of the character < size, print the hexadecimal format with max-width 2
 otherwise, print double space for the alignment 
