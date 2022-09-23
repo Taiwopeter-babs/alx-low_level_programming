@@ -4,9 +4,7 @@
 - Arrays: Arrays, addresses, and functions
 - Strings: Manipulating strings
 
-## Documentation for function in file: [__104-print_buffer.c__]
-
-(https://github.com/Taiwopeter-babs/alx-low_level_programming/blob/4b5c819aa947b5f353c0a8ce1d1b759ca1b4b790/0x06-pointers_arrays_strings/104-print_buffer.c)
+## Documentation for function in file: [__104-print_buffer.c__](https://github.com/Taiwopeter-babs/alx-low_level_programming/blob/4b5c819aa947b5f353c0a8ce1d1b759ca1b4b790/0x06-pointers_arrays_strings/104-print_buffer.c)
 
 ```c
 
