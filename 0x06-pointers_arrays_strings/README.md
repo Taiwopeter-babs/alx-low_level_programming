@@ -21,7 +21,7 @@ print("%08x:" i);
 
 ```
 The above statement prints the hexadecimal format of starting characters with max-width 8		    		       
-__ln21__: if the index of the character % 2 == 0, add space before printing
-__ln22__: if the index of the character < size, print the hexadecimal format with max-width 2
+- __ln21__: if the index of the character % 2 == 0, add space before printing
+- __ln22__: if the index of the character < size, print the hexadecimal format with max-width 2
 otherwise, print double space for the alignment 
-__ln28__: print space for the alignment of the characters.
+- __ln28__: print space for the alignment of the characters.
