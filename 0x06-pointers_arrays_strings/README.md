@@ -25,3 +25,5 @@ The above statement prints the hexadecimal format of starting characters with ma
 - __ln22__: if the index of the character < size, print the hexadecimal format with max-width 2
 otherwise, print double space for the alignment 
 - __ln28__: print space for the alignment of the characters.
+
+see [__104-main.c__](https://github.com/Taiwopeter-babs/alx-low_level_programming/blob/db9a3c1e561918c7e0b0ef91336a07c15d79b540/0x06-pointers_arrays_strings/104-main.c) for *implementation*
