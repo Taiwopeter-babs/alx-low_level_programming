@@ -24,8 +24,6 @@ char *_strstr(char *haystack, char *needle)
 			else
 				return ('\0');
 		}
-		if (!*(needle))
-			return (haystack);
 	}
 
 	return ('\0');
