@@ -2,7 +2,7 @@
 
 /**
  * _memcpy - copies memory with constant byte
- * @dest: pointer to destination memory where content will be copied to 
+ * @dest: pointer to destination memory where content will be copied to
  * @src: pointer to source memory where content will be copied from
  * @n: number of bytes to copy from src
  * Return: to resulting pointer string
