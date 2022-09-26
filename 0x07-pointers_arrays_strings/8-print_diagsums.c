@@ -10,17 +10,17 @@
 void print_diagsums(int *a, int size)
 {
 	int i, main_sum, off_sum;
-	
+
 	main_sum = 0;
 	off_sum = 0;
-	
+
 	for (i = 0; i < size; i++)
 	{
 		main_sum = main_sum + (*(a + (i * size) + i));
-	
+
 		off_sum = off_sum + (*(a + (i * size) + (size - i - 1)));
-	
-		
+
+
 	}
 	printf("%d, %d\n", main_sum, off_sum);
 }
