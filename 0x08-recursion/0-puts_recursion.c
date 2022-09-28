@@ -17,7 +17,7 @@ void _puts_recursion(char *s)
 
 	_putchar(*s);
 	s++;
-	
+
 	/* recursive case */
 	_puts_recursion(s);
 
