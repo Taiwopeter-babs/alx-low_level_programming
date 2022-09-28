@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * factorial - computes factorial of a string recursively
+ * factorial - computes factorial of an integer recursively
  * @n: parameter number
  * Description: The function stores the multiplication of each factorial
  * number of stacks and computes them when base value is fulfilled
