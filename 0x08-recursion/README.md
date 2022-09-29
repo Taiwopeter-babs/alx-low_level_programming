@@ -19,8 +19,8 @@ The function(:point_down:) in comment was written to reverse the string in a tes
 
 char *rev_string(char *s)
 {
-	_statements_;
+	statements;
 }
 
 ```
-
+__SEE FUNCTION DESCRIPTION FOR MORE DETAILS.__
