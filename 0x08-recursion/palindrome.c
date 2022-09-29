@@ -2,29 +2,35 @@
 
 int check_pal(char *s, char *rev);
 int stringlen(char *s);
+
 /*
 char *rev_string(char *s)
 {
 	int i, len;
 	char *first_ch, *last_ch;
-	char ch; */
+	char ch; 
+ */
 
 	/* length of string to keep track */
 	/* len = strlen(s); */
 
 	/* set the first_ch and last_ch to the beginning of the string */
 	/* first_ch = s;
-	last_ch = s; */
+	 *  last_ch = s; 
+	 */
 
 	/* take the *last_ch to the end of the string */
+	
 	/*for (i = 0; i < len; i++)
-		last_ch++;*/
+	 *	last_ch++;
+	 */
 
 	/**
 	 * swap the characters of first_ch and last_ch through a 
 	 * limit of 1/2 of the string length
 	 * then move back from last_ch and move forward from first_ch
 	 */
+	
 	/*for (i = 0; i < len / 2; i++)*/
 	/*{
 		ch = *last_ch;
@@ -35,7 +41,8 @@ char *rev_string(char *s)
 		first_ch++;
 	}
 	return (s);
-}*/
+}
+	 */
 
 /**
  * stringlen - computes the length of the string
