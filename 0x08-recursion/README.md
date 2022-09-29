@@ -5,7 +5,7 @@
 ## Use case of recursive functions and loops
 
 The function below in [palindrome.c](https://github.com/Taiwopeter-babs/alx-low_level_programming/blob/afade24fe8a3a1ffeb52e6178910e8be77c886c6/0x08-recursion/palindrome.c) utilises loops and recursive call
-int its helper functions to get the length check if a string is a palindrome
+in its helper functions to get the length check if a string is a palindrome.
 
 ```c
 int is_palindrome(char *s)
@@ -23,4 +23,4 @@ char *rev_string(char *s)
 }
 
 ```
-__SEE FUNCTION DESCRIPTION FOR MORE DETAILS.__
+__SEE FUNCTION DESCRIPTION FOR MORE DETAILS. Reach out if you'd like discuss about recursion.__
