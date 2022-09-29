@@ -23,6 +23,6 @@ char *rev_string(char *s)
 }
 
 ```
-__SEE FUNCTION DESCRIPTION FOR MORE DETAILS. 
+__SEE FUNCTION DESCRIPTION FOR MORE DETAILS.__
 
-Reach out if you'd like discuss about recursion.__
+__Reach out if you'd like discuss about recursion.__
