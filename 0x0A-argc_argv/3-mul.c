@@ -14,8 +14,13 @@ int main(int argc, char *argv[])
 	int i;
 	int product = 1;
 
+	if (argc == 2)
+	{
+		printf("Error\n");
+		return (1);
+	}
 
-	if (argc > 1)
+	if (argc > 1 && argc <= 3)
 	{
 		i = 1;
 		while (i < argc)
