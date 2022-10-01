@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <ctype.h>
 
 /**
  * main - adds the integer arguments
@@ -29,7 +30,7 @@ int main(int argc, char **argv)
 		{
 			for (ptr_val = *param; *ptr_val != '\0'; ptr_val++)
 			{
-				if (*ptr_val >= '0' && *ptr_val <= '9')
+				if (isdigit(*ptr_val))
 				{
 					continue;
 				}
