@@ -26,5 +26,8 @@ testadd.c applies __ARRAY__ method of accessing elements:
 
 ```c
 int main(int argc, char *argv[])
+{
+
+}
 ```
 
