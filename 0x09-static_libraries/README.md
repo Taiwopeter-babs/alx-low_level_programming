@@ -7,10 +7,10 @@
 
 # IMPORTANT -> AVOID DOUBLE INCLUSION!
 
-Use the preprocessor command:
+Use the preprocessor command in your header file e.g main.h:
 ```c
-#ifndef HEADERFILENAME_H
-#define HEADERFILENAME_H
+#ifndef MAIN_H
+#define MAIN_H
 
 ....
 
