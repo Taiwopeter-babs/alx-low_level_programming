@@ -17,22 +17,22 @@ int **alloc_grid(int height, int width)
 		return (NULL);
 
 	/**
-	 * allocate memory to row size and for each row,
-	 * allocate column size
+	 * allocate memory to row size,
+	 * allocate memory of height x width and let ptr point to it
 	 */
 	ptr = malloc(height * sizeof(int *));
+
+	*ptr = malloc(sizeof(int) * height * width);
 	if (ptr == NULL)
 	{
-		free(ptr);
 		return (NULL);
 	}
 	for (h = 0; h < height; h++)
 	{
-		ptr[h] = malloc(width * sizeof(int));
+		ptr[h] = (*ptr + (width * h));
 	
 		if (ptr[h] == NULL)
 		{
-			free(ptr[h]);
 			return (NULL);
 		}
 	}
@@ -43,7 +43,7 @@ int **alloc_grid(int height, int width)
 		w = 0;
 		while (w < width)
 		{
-			ptr[h][w] = 0;
+			*(*(ptr + h) + w) = 0;
 			w++;
 		}
 		h++;
