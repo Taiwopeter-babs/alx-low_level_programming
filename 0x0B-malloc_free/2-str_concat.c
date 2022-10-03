@@ -2,6 +2,7 @@
 #include <stdlib.h>
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
+char *_strcat(char *dest, char *src);
 /**
  * str_concat - concatenates two strings and passes the result to a new
  * string with allocated memory
@@ -12,7 +13,7 @@ char *_strcpy(char *dest, char *src);
  */
 char *str_concat(char *s1, char *s2)
 {
-	int i, len;
+	int len;
 	char *new;
 	char st1[100], st2[100];
 
@@ -25,13 +26,9 @@ char *str_concat(char *s1, char *s2)
 		_strcpy(st2, s2);
 
 		len = _strlen(st1);
-		i = 0;
-		while (st2[i] != '\0')
-		{
-			st1[len + i] = st2[i];
-			i++;
-		}
-		st1[len + i] = '\0';
+
+		_strcat(st1, st2);
+
 		len = _strlen(st1);
 		new = malloc((len + 1) * sizeof(char));
 		if (new == NULL)
@@ -40,7 +37,13 @@ char *str_concat(char *s1, char *s2)
 	}
 	else if (s2 == NULL)
 	{
+		s2 = '\0';
 		_strcpy(st1, s1);
+		_strcpy(st2, s2);
+
+		len = _strlen(st1);
+		_strcat(st1, st2);
+
 		len = _strlen(st1);
 		new = malloc((len + 1) * sizeof(char));
 		if (new == NULL)
@@ -49,8 +52,14 @@ char *str_concat(char *s1, char *s2)
 	}
 	else if (s1 == NULL)
 	{
+		s1 = '\0';
+		_strcpy(st1, s1);
 		_strcpy(st2, s2);
-		len = _strlen(st2);
+		
+		len = _strlen(st1);
+		_strcat(st1, st2);
+		
+		len = _strlen(st1);
 		new = malloc((len + 1) * sizeof(char));
 		if (new == NULL)
 			return (NULL);
@@ -98,5 +107,31 @@ char *_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 
 	return (dest);
+}
+
+/**
+ * _strcat - concatenates two strings
+ * @src: source string
+ * @dest: destination string
+ * Return: destination string
+ */
+char *_strcat(char *dest, char *src)
+{
+	int i, len;
+
+	len = _strlen(dest);
+
+	i = 0;
+
+	while (src[i] != '\0')
+	{
+		dest[len + i] = src[i];
+		i++;
+	}
+
+	dest[len + i] = '\0';
+
+	return (dest);
+
 }
 
