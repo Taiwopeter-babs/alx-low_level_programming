@@ -21,12 +21,15 @@ int **alloc_grid(int height, int width)
 	 * allocate column size
 	 */
 	ptr = malloc(height * sizeof(int *));
+	if (ptr == NULL)
+		return (NULL);
 	for (h = 0; h < height; h++)
 	{
 		ptr[h] = malloc(width * sizeof(int));
+	
+		if (ptr[h] == NULL)
+			return (NULL);
 	}
-	if (ptr == NULL)
-		return (NULL);
 	/* initialize each element to 0 */
 	h = 0;
 	while (h < height)
@@ -34,7 +37,7 @@ int **alloc_grid(int height, int width)
 		w = 0;
 		while (w < width)
 		{
-			*(*(ptr + h) + w) = 0;
+			ptr[h][w] = 0;
 			w++;
 		}
 		h++;
