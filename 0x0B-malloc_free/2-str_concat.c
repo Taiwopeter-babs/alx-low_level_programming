@@ -7,41 +7,50 @@ char *_strcpy(char *dest, char *src);
  * string with allocated memory
  * @s1: string to receive and pass to new string
  * @s2: string to give
- * Description: ln 19 explains the copy function
+ * Description: see README for comprehensive discussion
  * Return: pointer, otherwise NULL
  */
 char *str_concat(char *s1, char *s2)
 {
-	int i, j, len1, len2;
+	int i, len;
 	char *new;
 	char st1[100], st2[100];
 
-	/* copying string literals to new buffers ensures manipulation */
-	_strcpy(st1, s1);
-	_strcpy(st2, s2);
-
-	len1 = _strlen(st1);
-	i = 0;
-	while (st2[i] != '\0')
+	if (s1 != NULL && s2 != NULL)
 	{
-		st1[len1 + i] = st2[i];
-		i++;
-	}
-	st1[len1 + i] = '\0';
-	/* --------------------------- */
-	len2 = _strlen(st1);
-	new = malloc((len2 + 1) * sizeof(char));
+		_strcpy(st1, s1);
+		_strcpy(st2, s2);
 
+		len = _strlen(st1);
+		i = 0;
+		while (st2[i] != '\0')
+		{
+			st1[len + i] = st2[i];
+			i++;
+		}
+		st1[len + i] = '\0';
+		len = _strlen(st1);
+		new = malloc((len + 1) * sizeof(char));
+		_strcpy(new, st1);
+	}
+	else if (s2 == NULL)
+	{
+		_strcpy(st1, s1);
+		len = _strlen(st1);
+		new = malloc((len + 1) * sizeof(char));
+		_strcpy(new, st1);
+	}
+	else if (s1 == NULL)
+	{
+		_strcpy(st2, s2);
+		len = _strlen(st2);
+		new = malloc((len + 1) * sizeof(char));
+		_strcpy(new, st2);
+	}
+	else if (s1 == NULL && s2 == NULL)
+		return (NULL);
 	if (new == NULL)
 		return (NULL);
-	j = 0;
-	while (st1[j] != '\0')
-	{
-		new[j] = st1[j];
-		j++;
-	}
-	new[j] = '\0';
-
 	return (new);
 }
 
