@@ -16,6 +16,9 @@ char *str_concat(char *s1, char *s2)
 	char *new;
 	char st1[100], st2[100];
 
+	if (s1 == NULL && s2 == NULL)
+		return ('\0');
+
 	if (s1 != NULL && s2 != NULL)
 	{
 		_strcpy(st1, s1);
@@ -31,6 +34,8 @@ char *str_concat(char *s1, char *s2)
 		st1[len + i] = '\0';
 		len = _strlen(st1);
 		new = malloc((len + 1) * sizeof(char));
+		if (new == NULL)
+			return (NULL);
 		_strcpy(new, st1);
 	}
 	else if (s2 == NULL)
@@ -38,6 +43,8 @@ char *str_concat(char *s1, char *s2)
 		_strcpy(st1, s1);
 		len = _strlen(st1);
 		new = malloc((len + 1) * sizeof(char));
+		if (new == NULL)
+			return (NULL);
 		_strcpy(new, st1);
 	}
 	else if (s1 == NULL)
@@ -45,12 +52,10 @@ char *str_concat(char *s1, char *s2)
 		_strcpy(st2, s2);
 		len = _strlen(st2);
 		new = malloc((len + 1) * sizeof(char));
+		if (new == NULL)
+			return (NULL);
 		_strcpy(new, st2);
 	}
-	else if (s1 == NULL && s2 == NULL)
-		return (NULL);
-	if (new == NULL)
-		return (NULL);
 	return (new);
 }
 
