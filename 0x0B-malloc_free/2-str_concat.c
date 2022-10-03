@@ -55,11 +55,11 @@ char *str_concat(char *s1, char *s2)
 		s1 = '\0';
 		_strcpy(st1, s1);
 		_strcpy(st2, s2);
-		
-		len = _strlen(st1);
-		_strcat(st1, st2);
-		
-		len = _strlen(st1);
+
+		len = _strlen(st2);
+		_strcat(st2, st1);
+
+		len = _strlen(st2);
 		new = malloc((len + 1) * sizeof(char));
 		if (new == NULL)
 			return (NULL);
