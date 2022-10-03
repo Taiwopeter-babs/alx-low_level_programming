@@ -7,8 +7,8 @@ char *_strcpy(char *dest, char *src);
  * string with allocated memory
  * @s1: string to receive and pass to new string
  * @s2: string to give
- * Description: if the original string is not null, calculate its length
- * Return: char or NULL if there's a failure in malloc or if str == NULL
+ * Description: ln 19 explains the copy function
+ * Return: pointer, otherwise NULL
  */
 char *str_concat(char *s1, char *s2)
 {
