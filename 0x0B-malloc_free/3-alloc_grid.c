@@ -15,7 +15,6 @@ int **alloc_grid(int height, int width)
 
 	if (height <= 0 || width <= 0)
 		return (NULL);
-
 	/**
 	 * allocate memory to row size,
 	 * allocate memory of height x width and let ptr point to it
@@ -31,24 +30,23 @@ int **alloc_grid(int height, int width)
 	for (h = 0; h < height; h++)
 	{
 		ptr[h] = malloc(width * sizeof(int));
-	
+
 		if (ptr[h] == NULL)
 		{
+			for (h = 0; h < height; h++)
+				free(ptr[h]);
 			free(ptr);
 			return (NULL);
 		}
 	}
 	/* initialize each element to 0 */
-	h = 0;
-	while (h < height)
+	for (h = 0; h < height; h++)
 	{
-		w = 0;
-		while (w < width)
+		for (w = 0; w < width; w++)
 		{
 			*(*(ptr + h) + w) = 0;
 			w++;
 		}
-		h++;
 	}
 	return (ptr);
 }
