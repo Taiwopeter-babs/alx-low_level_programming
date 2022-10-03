@@ -18,7 +18,23 @@ char *str_concat(char *s1, char *s2)
 	char st1[100], st2[100];
 
 	if (s1 == NULL && s2 == NULL)
-		return ('\0');
+	{
+		s1 = "";
+		s2 = "";
+		_strcpy(st1, s1);
+		_strcpy(st2, s2);
+
+		len = _strlen(st1);
+		_strcat(st1, st2);
+
+		len = _strlen(st1);
+
+		new = malloc((len + 1) * sizeof(char));
+		if (new == NULL)
+			return (NULL);
+		_strcpy(new, st1);
+
+	}
 
 	if (s1 != NULL && s2 != NULL)
 	{
