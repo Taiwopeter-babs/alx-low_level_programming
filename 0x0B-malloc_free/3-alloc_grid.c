@@ -22,17 +22,19 @@ int **alloc_grid(int height, int width)
 	 */
 	ptr = malloc(height * sizeof(int *));
 
-	*ptr = malloc(sizeof(int) * height * width);
 	if (ptr == NULL)
 	{
+		free(ptr);
 		return (NULL);
 	}
+	/* allocate memory to each column */
 	for (h = 0; h < height; h++)
 	{
-		ptr[h] = (*ptr + (width * h));
+		ptr[h] = malloc(width * sizeof(int));
 	
 		if (ptr[h] == NULL)
 		{
+			free(ptr);
 			return (NULL);
 		}
 	}
