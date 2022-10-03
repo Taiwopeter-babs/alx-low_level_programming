@@ -37,7 +37,7 @@ char *str_concat(char *s1, char *s2)
 	}
 	else if (s2 == NULL)
 	{
-		s2 = '\0';
+		s2 = "";
 		_strcpy(st1, s1);
 		_strcpy(st2, s2);
 
@@ -52,7 +52,7 @@ char *str_concat(char *s1, char *s2)
 	}
 	else if (s1 == NULL)
 	{
-		s1 = '\0';
+		s1 = "";
 		_strcpy(st1, s1);
 		_strcpy(st2, s2);
 
