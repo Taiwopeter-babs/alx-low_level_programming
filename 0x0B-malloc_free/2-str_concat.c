@@ -19,30 +19,31 @@ char *str_concat(char *s1, char *s2)
 
 	if (s1 == NULL && s2 == NULL)
 	{
+		/* Initialize NULL to empty strings */
 		s1 = "";
 		s2 = "";
 		_strcpy(st1, s1);
 		_strcpy(st2, s2);
 
+		/* compute length and concatenate */
 		len = _strlen(st1);
 		_strcat(st1, st2);
-
+		
+		/* compute length of new string and allocate memory to "new" */
 		len = _strlen(st1);
-
 		new = malloc((len + 1) * sizeof(char));
 		if (new == NULL)
 			return (NULL);
+		/* copy content to new */
 		_strcpy(new, st1);
-
 	}
-
+	/* comments above apply across various conditions */
 	if (s1 != NULL && s2 != NULL)
 	{
 		_strcpy(st1, s1);
 		_strcpy(st2, s2);
 
 		len = _strlen(st1);
-
 		_strcat(st1, st2);
 
 		len = _strlen(st1);
