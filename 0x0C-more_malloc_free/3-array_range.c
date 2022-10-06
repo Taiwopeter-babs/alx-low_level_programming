@@ -5,7 +5,8 @@
  * array_range - creates an array of integers
  * @min: starting value of array
  * @max: terminating value of array.
- * Return: pointer to resulting string
+ * Return: pointer to resulting string, otherwise if
+ * min > max, return NULL & also return NULL if malloc fails
  */
 int *array_range(int min, int max)
 {
@@ -28,7 +29,6 @@ int *array_range(int min, int max)
 		i++;
 		min++;
 	}
-	*(ptr + i) = '\0';
 
 	return (ptr);
 }
