@@ -36,7 +36,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		s2 = "";
 
-	if (n >= len_s2)
+	if (n > len_s2)
 		n = len_s2;
 	/**
 	 * allocated memory is the length of s1 + n
