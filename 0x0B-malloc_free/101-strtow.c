@@ -11,9 +11,8 @@ char *_strcpy(char *dest, char *src)
 	int i;
 
 	for (i = 0; src[i] != '\0'; i++)
-	{
 		dest[i] = src[i];
-	}
+
 	dest[i] = '\0';
 	return (dest);
 }
@@ -27,9 +26,8 @@ int _strlen(char *s)
 	int len = 0;
 
 	while (*s != '\0')
-	{
 		len++, s++;
-	}
+
 	return (len);
 }
 /**
@@ -82,7 +80,8 @@ char **strtow(char *str)
 
 	if (str == NULL)
 		return (NULL);
-	ptr = malloc(sizeof(char *) * (words + 1));
+	ptr = malloc(sizeof(*ptr) * (words + 1));
+			/* return (NULL); */
 	if (ptr == NULL)
 		return (NULL);
 	/* copy str[i] to buffer[j] if not ' ', then allocate memory */
