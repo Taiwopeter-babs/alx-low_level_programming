@@ -23,12 +23,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 	if (new_size == old_size)
 		return (ptr);
+	/* default code to run when new_size > old_size */
 
-	if (new_size > old_size)
-	{
-		free(ptr);
-		ptr = malloc(new_size);
-	}
+	free(ptr);
+	ptr = malloc(new_size);
 
 	return (ptr);
 }
