@@ -43,7 +43,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	 * n is the amount of memory s1 can take from s2
 	 */
 	len_ptr = len_s1 + n;
-	ptr = malloc(sizeof(char) * len_ptr);
+	ptr = malloc(sizeof(char) * (len_ptr + 1));
 	if (ptr == NULL)
 		return (NULL);
 	/**
