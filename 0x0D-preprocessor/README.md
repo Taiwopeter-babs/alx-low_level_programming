@@ -2,4 +2,9 @@
 
 ## Using preprocessor directives 
 - include guards
-- macros 
+- macros
+
+## Requirements
+- Ubuntu 20.04
+- Valgrind
+- gcc
