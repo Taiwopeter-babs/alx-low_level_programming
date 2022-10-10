@@ -15,27 +15,26 @@ dog_t *new_dog(char *name, float age, char *owner)
 	unsigned int i, name_len, owner_len;
 	dog_t *ptr_dog;
 
-	if (name == NULL || owner == NULL)
-		return (NULL);
-
 	ptr_dog = malloc(sizeof(dog_t));
 	if (ptr_dog == NULL)
 		return (NULL);
 	/**
 	 * get the length of the string, then allocate memory to store string
-	 * Parse each char to the alloc memory space to store in memory.
+	 * Parse each char to the alloc memory space to store in memory + '\0'
 	 */
 	for (name_len = 0; name[name_len] != '\0'; name_len++)
 		;
 
 	ptr_dog->name = malloc(sizeof(char) * (name_len + 1));
-	if (ptr_dog->name == NULL)
+	if (!(ptr_dog->name))
 	{
 		free(ptr_dog);
+		free(ptr_dog->name);
 		return (NULL);
 	}
 	for (i = 0; i < name_len; i++)
 		ptr_dog->name[i] = name[i];
+	ptr_dog->name[i] = '\0';
 
 	/* initialize the age of the dog */
 	if (ptr_dog->age)
@@ -46,7 +45,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		;
 
 	ptr_dog->owner = malloc(sizeof(char) * (owner_len + 1));
-	if (ptr_dog->owner == NULL)
+	if (!(ptr_dog->owner))
 	{
 		free(ptr_dog->owner);
 		free(ptr_dog);
@@ -54,6 +53,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 	for (i = 0; i < owner_len; i++)
 		ptr_dog->owner[i] = owner[i];
+	 ptr_dog->owner[i] = '\0';
 
 	return (ptr_dog);
 }
