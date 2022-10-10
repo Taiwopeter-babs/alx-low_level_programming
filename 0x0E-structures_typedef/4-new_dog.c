@@ -16,8 +16,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog_t *ptr_dog;
 
 	ptr_dog = malloc(sizeof(dog_t));
-	if (ptr_dog == NULL)
+	if (ptr_dog == NULL || !(name) || !(owner))
+	{
+		free(ptr_dog);
 		return (NULL);
+	}
 	/**
 	 * get the length of the string, then allocate memory to store string
 	 * Parse each char to the alloc memory space to store in memory + '\0'
