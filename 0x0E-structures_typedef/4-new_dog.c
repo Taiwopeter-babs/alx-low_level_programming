@@ -3,7 +3,7 @@
 /**
  * _strlen - calculates the length of string in bytes
  * @s: paramter to be evaluated
- * Return: nothing
+ * Return: int
  */
 int _strlen(char *s)
 {
