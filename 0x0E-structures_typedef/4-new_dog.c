@@ -39,6 +39,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	name_len = _strlen(name) + 1;
 	owner_len = _strlen(owner) + 1;
 
+	/* alloc memory and copy the string to memory */
 	ptr_dog->name = malloc(sizeof(char) * name_len);
 	if (ptr_dog->name == NULL)
 	{
@@ -51,7 +52,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	/* initialize the age of the dog */
 	ptr_dog->age = age;
-	/* alloc memory and copy the string to memory - ln 64 */
+	/* alloc memory and copy the string to memory */
 	ptr_dog->owner = malloc(sizeof(char) * owner_len);
 	if (ptr_dog->owner == NULL)
 	{
