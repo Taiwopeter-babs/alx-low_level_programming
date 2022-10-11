@@ -1,6 +1,22 @@
 #include "dog.h"
 #include <stdlib.h>
 /**
+ * _strlen - calculates the length of string in bytes
+ * @s: paramter to be evaluated
+ * Return: nothing
+ */
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (*s != '\0')
+	{
+		len++;
+		s++;
+	}
+	return (len);
+}
+/**
  * new_dog - function creates an instance of dog_t
  * a synonym of struct dog
  * @name: member param
@@ -19,13 +35,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(ptr_dog);
 		return (NULL);
 	}
-	/**
-	 * get the length of the string, then allocate memory to store string
-	 * Parse each char to the alloc memory space to store in memory + '\0'
-	 */
-	for (name_len = 0; name[name_len]; name_len++)
-		;
-	name_len++;
+	/* get the length of name & owner members */
+	name_len = _strlen(name) + 1;
+	owner_len = _strlen(owner) + 1;
 
 	ptr_dog->name = malloc(sizeof(char) * name_len);
 	if (ptr_dog->name == NULL)
@@ -34,17 +46,12 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(ptr_dog);
 		return (NULL);
 	}
-
 	for (i = 0; i < name_len; i++)
 		ptr_dog->name[i] = name[i];
 
 	/* initialize the age of the dog */
 	ptr_dog->age = age;
-	/* See ptr_dog->name for explanation */
-	for (owner_len = 0; owner[owner_len]; owner_len++)
-		;
-	owner_len++;
-
+	/* alloc memory and copy the string to memory - ln 64 */
 	ptr_dog->owner = malloc(sizeof(char) * owner_len);
 	if (ptr_dog->owner == NULL)
 	{
