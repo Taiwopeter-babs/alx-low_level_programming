@@ -1,5 +1,4 @@
 #include "variadic_functions.h"
-
 /**
  * print_all - print anything with separator
  * @format: string of format specifiers
@@ -9,8 +8,8 @@ void print_all(const char *const format, ...)
 {
 	unsigned int i;
 	char ch;
-	float flt;
 	char *str, *separator = "";
+	float flt;
 	const char *travelformat;
 	va_list _args;
 
@@ -22,7 +21,6 @@ void print_all(const char *const format, ...)
 		printf("%s", separator);
 		switch (*travelformat)
 		{
-
 			case 'c':
 				ch = va_arg(_args, int);
 				printf("%c", ch);
@@ -43,13 +41,12 @@ void print_all(const char *const format, ...)
 					printf("(nil)");
 				break;
 			default:
+				separator = ", ";
 				break;
-			separator = ", ";
 
 		}
-		travelformat++;
+		++travelformat;
 	}
 	printf("\n");
 	va_end(_args);
-
 }
