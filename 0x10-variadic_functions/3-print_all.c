@@ -60,28 +60,23 @@ void print_all(const char *const format, ...)
 
 	va_start(v_args, format);
 
-	if (format)
+	i = 0;
+	while (format && format[i])
 	{
-		i = 0;
-		while (format && format[i])
+		j = 0;
+		while (pr[j].type != NULL)
 		{
-			j = 0;
-			while (pr[j].type != NULL)
+			if (*pr[j].type == format[i])
 			{
-				if (*pr[j].type == format[i])
-				{
-					printf("%s", separator);
-					pr[j].func(v_args);
-					separator = ", ";
-					break;
-				}
-				j++;
+				printf("%s", separator);
+				pr[j].func(v_args);
+				separator = ", ";
+				break;
 			}
-			i++;
+			j++;
 		}
+		i++;
 	}
 	printf("\n");
 	va_end(v_args);
-
-
 }
