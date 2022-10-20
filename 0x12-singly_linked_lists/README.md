@@ -1,6 +1,6 @@
 #	Singly linked lists
 
-- Basic operations
+1. Basic operations
  - Insertion
  - Deletion
  - Display
