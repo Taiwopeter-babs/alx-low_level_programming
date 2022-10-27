@@ -9,7 +9,7 @@ int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned int bitstatus, setcheck;
 
-	if (index > sizeof(n))
+	if (index > sizeof(unsigned long int))
 		return (-1);
 
 	/* move the bits index times */
