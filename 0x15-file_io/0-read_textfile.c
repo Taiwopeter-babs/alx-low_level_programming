@@ -27,12 +27,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	sz_read = read(fd, (void *)ch_buf, letters);
 	if (sz_read < 0)
 		return (0);
-	ch_buf[sz_read] = '\0';
+	/* ch_buf[sz_read] = '\0'; */
 
-	wr_size = write(STDOUT_FILENO, ch_buf, letters);
+	wr_size = write(STDOUT_FILENO, ch_buf, sz_read);
 	if (wr_size < 0)
 		return (0);
 
 	close(fd);
-	return (sz_read);
+	free(ch_buf);
+	return (wr_size);
 }
