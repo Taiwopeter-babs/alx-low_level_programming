@@ -38,14 +38,14 @@ int main(int argc, char *argv[])
 	if (fd_to == -1)
 	{
 		dprintf(STDERR_FILENO,
-			"Error: Can't write to file %s\n", argv[2]);
+			"Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 	wr_out = write(fd_to, buffer, rd_in);
 	if (wr_out == -1)
 	{
 		dprintf(STDERR_FILENO,
-			"Error: Can't write to file %s\n", argv[2]);
+			"Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 
