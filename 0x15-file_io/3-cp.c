@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
 	char buffer[1024];
-	int fd_fr, fd_to;
+	int fd_fr, fd_to, check_out1, check_out2;
 	ssize_t rd_in, wr_out;
 
 	if (argc != 3)
@@ -48,13 +48,15 @@ int main(int argc, char *argv[])
 			"Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-
-	if (close(fd_fr) == -1)
+	
+	check_out1 = close(fd_fr);
+	if (check_out1 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_fr);
 		exit(100);
 	}
-	if (close(fd_to) == -1)
+	check_out2 = close(fd_to);
+	if (check_out2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
 		exit(100);
