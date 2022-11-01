@@ -19,19 +19,34 @@ int main(int argc, char *argv[])
 	}
 
 	fd_fr = open(argv[1], O_RDONLY);
-	rd_in = read(fd_fr, buffer, 1024);
-	if (rd_in == -1 || fd_fr == -1)
+	if (fd_fr == -1)
 	{
-	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-	exit(98);
+		dprintf(STDERR_FILENO,
+			"Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	rd_in = read(fd_fr, buffer, 1024);
+	if (rd_in == -1)
+	{
+		dprintf(STDERR_FILENO,
+				"Error: Can't read from file %s\n", argv[1]);
+		exit(98);
 	}
 
+
 	fd_to = open(argv[2], O_CREAT | O_TRUNC | O_RDWR, 0664);
-	wr_out = write(fd_to, buffer, rd_in);
-	if (fd_to == -1 || wr_out == -1)
+	if (fd_to == -1)
 	{
-	dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
-	exit(99);
+		dprintf(STDERR_FILENO,
+			"Error: Can't write to file %s\n", argv[2]);
+		exit(99);
+	}
+	wr_out = write(fd_to, buffer, rd_in);
+	if (wr_out == -1)
+	{
+		dprintf(STDERR_FILENO,
+			"Error: Can't write to file %s\n", argv[2]);
+		exit(99);
 	}
 
 	if (close(fd_fr) == -1 || close(fd_to) == -1)
