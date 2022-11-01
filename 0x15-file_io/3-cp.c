@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
 	char buffer[1024];
-	int fd_fr, fd_to, check_out1, check_out2;
+	int fd_fr, fd_to;
 	ssize_t rd_in, wr_out;
 
 	if (argc != 3)
@@ -29,10 +29,9 @@ int main(int argc, char *argv[])
 	if (rd_in == -1)
 	{
 		dprintf(STDERR_FILENO,
-				"Error: Can't read from file %s\n", argv[1]);
+			"Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-
 
 	fd_to = open(argv[2], O_CREAT | O_TRUNC | O_RDWR, 0664);
 	if (fd_to == -1)
@@ -49,14 +48,12 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 	
-	check_out1 = close(fd_fr);
-	if (check_out1 == -1)
+	if (close(fd_fr) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_fr);
 		exit(100);
 	}
-	check_out2 = close(fd_to);
-	if (check_out2 == -1)
+	if (close(fd_to) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
 		exit(100);
