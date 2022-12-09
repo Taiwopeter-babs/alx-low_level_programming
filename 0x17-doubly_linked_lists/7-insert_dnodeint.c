@@ -26,8 +26,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		new_node->prev = NULL;
 		if (*h == NULL)
 		{
-			*h = new_node;
 			new_node->next = NULL;
+			*h = new_node;
 		}
 		else
 		{
@@ -39,35 +39,20 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 	if (idx != 0)
 	{
-		if (idx == 1)
-			insert_atindexone(h, new_node);
 		curr = *h;
-		for (node_idx = 0; node_idx < idx - 1; node_idx++)
+		for (node_idx = 0; curr != NULL; node_idx++)
+		{
+			if (node_idx + 1 == idx)
+			{
+				next_node = curr->next;
+				new_node->next = next_node;
+				curr->next = new_node;
+				new_node->prev = curr;
+				next_node->prev = new_node;
+				return (new_node);
+			}
 			curr = curr->next;
-
-		next_node = curr->next;
-		new_node->next = next_node;
-		curr->next = new_node;
-		new_node->prev = curr;
-		next_node->prev = new_node;
+		}
 	}
-	return (new_node);
+	return (NULL);
 }
-/**
- * insert_atindexone - inserts a node just after the head
- * @h: head
- * @new_node: node to insert
- * Return: node
- */
-dlistint_t *insert_atindexone(dlistint_t **h, dlistint_t *new_node)
-{
-	dlistint_t *next_node;
-
-	next_node = (*h)->next;
-	new_node->next = next_node;
-	(*h)->next = new_node;
-	new_node->prev = *h;
-	next_node->prev = new_node;
-	return (new_node);
-}
-
