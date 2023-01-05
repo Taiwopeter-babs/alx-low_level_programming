@@ -39,7 +39,8 @@ void free_linked_list(hash_node_t *list_head);
 void free_table(hash_table_t *table);
 hash_table_t *hash_table_create(unsigned long int size);
 
-/* 1-djb2.c hash function */
+/* 1-djb2.c */
 unsigned long int hash_djb2(const unsigned char *str);
-
+/* 2-key_index.c hashing function*/
+unsigned long int key_index(const unsigned char *key, unsigned long int size);
 # endif /* HASH_TABLES_H */
