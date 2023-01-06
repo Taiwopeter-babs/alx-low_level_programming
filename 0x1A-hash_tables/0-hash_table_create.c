@@ -47,8 +47,7 @@ void free_linked_list(hash_node_t *list_head)
 	{
 		temp = list_head;
 		list_head = list_head->next;
-		free(temp->key);
-		free(temp->value);
+		free_node(temp);
 	}
 	free(list_head);
 }
