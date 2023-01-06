@@ -28,7 +28,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 	}
 	for (idx = 0; idx < new_table->size; idx++)
 	{
-		new_table->array[idx] = NULL;
+		new_table->array[idx] = NULL; /* set each head to NULL */
 	}
 
 	return (new_table);
@@ -69,4 +69,15 @@ void free_table(hash_table_t *table)
 
 	free(table->array);
 	free(table);
+}
+/**
+ * free_node - frees a node
+ * @node: node to be freed
+ * Return: nothing
+ */
+void free_node(hash_node_t *node)
+{
+	free(node->key);
+	free(node->value);
+	free(node);
 }
