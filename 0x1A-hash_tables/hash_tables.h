@@ -39,6 +39,7 @@ typedef struct hash_table_s
 void free_linked_list(hash_node_t *list_head);
 void free_table(hash_table_t *table);
 hash_table_t *hash_table_create(unsigned long int size);
+void free_node(hash_node_t *node);
 
 /* 1-djb2.c */
 unsigned long int hash_djb2(const unsigned char *str);
@@ -52,4 +53,6 @@ hash_node_t *add_node_to_chain(hash_node_t *head, hash_node_t *node);
 hash_node_t *create_node(const char *key, const char *value);
 
 char *hash_table_get(const hash_table_t *ht, const char *key);
+
+void hash_table_print(const hash_table_t *ht);
 # endif /* HASH_TABLES_H */
