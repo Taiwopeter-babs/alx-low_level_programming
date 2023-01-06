@@ -51,4 +51,5 @@ void collision_h(hash_table_t *ht, unsigned long int index, hash_node_t *node);
 hash_node_t *add_node_to_chain(hash_node_t *head, hash_node_t *node);
 hash_node_t *create_node(const char *key, const char *value);
 
+char *hash_table_get(const hash_table_t *ht, const char *key);
 # endif /* HASH_TABLES_H */
