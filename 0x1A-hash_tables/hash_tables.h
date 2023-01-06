@@ -4,6 +4,7 @@
 /* Libraries */
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 /**
  * struct hash_node_s - Node of a hash table
@@ -43,4 +44,11 @@ hash_table_t *hash_table_create(unsigned long int size);
 unsigned long int hash_djb2(const unsigned char *str);
 /* 2-key_index.c hashing function*/
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
+
+/* 3-hash_table_set.c */
+int hash_table_set(hash_table_t *ht, const char *key, const char *value);
+void collision_h(hash_table_t *ht, unsigned long int index, hash_node_t *node);
+hash_node_t *add_node_to_chain(hash_node_t *head, hash_node_t *node);
+hash_node_t *create_node(const char *key, const char *value);
+
 # endif /* HASH_TABLES_H */
