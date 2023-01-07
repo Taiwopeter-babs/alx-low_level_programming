@@ -7,5 +7,5 @@
  */
 void hash_table_delete(hash_table_t *ht)
 {
-	free_table(ht);
+	free_table(ht); /* uses functions from 0-hash_table_delete.c */
 }

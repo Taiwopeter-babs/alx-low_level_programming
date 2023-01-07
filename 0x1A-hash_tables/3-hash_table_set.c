@@ -16,8 +16,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	/* get index */
 	index = key_index((unsigned char *) key, ht->size);
-	if (!ht || !key || *key == '\0')
+	if (!ht)
+	{
+		free_table(ht);
 		return (0);
+	}
 
 	/* create node to add */
 	new_node = create_node(key, value);
@@ -116,10 +119,9 @@ hash_node_t *create_node(const char *key, const char *value)
 		return (NULL);
 	}
 	new_node->key = strdup(key);
-	if (!new_node->key)
+	if (!key)
 	{
-		free_node(new_node);
-		return (NULL);
+		new_node->key = strdup("(null)");
 	}
 	if (value == NULL)
 		new_node->value = "";
