@@ -256,7 +256,10 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 
 	node = ht->array[index];
 	if (!node)
+	{
+		sfree_node(node);
 		return (NULL);
+	}
 
 	while (node)
 	{
@@ -284,11 +287,14 @@ shash_node_t *screate_node(const char *key, const char *value)
 		return (NULL);
 	}
 	if (!key)
-		new_node->key = strdup("(null)");
+	{
+		sfree_node(new_node);
+		return (NULL);
+	}
 	else
 		new_node->key = strdup(key);
 	if (!value)
-		new_node->value = "";
+		new_node->value = strdup("(null)");
 	else
 		new_node->value = strdup(value);
 
@@ -392,7 +398,7 @@ void sfree_table(shash_table_t *table)
 	}
 
 	/*free_slinked_list(table->shead);*/
-
+	
 	free(table->array);
 	free(table);
 }
@@ -403,8 +409,10 @@ void sfree_table(shash_table_t *table)
  */
 void sfree_node(shash_node_t *node)
 {
-	free(node->key);
-	free(node->value);
+	if (node->key)
+		free(node->key);
+	if (node->value)
+		free(node->value);
 	free(node);
 }
 /**
