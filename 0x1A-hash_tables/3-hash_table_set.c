@@ -121,7 +121,7 @@ hash_node_t *create_node(const char *key, const char *value)
 	new_node->key = strdup(key);
 	if (!key)
 	{
-		free_node(new_node->key);
+		free_node(new_node);
 		return (NULL);
 	}
 	if (value == NULL)
