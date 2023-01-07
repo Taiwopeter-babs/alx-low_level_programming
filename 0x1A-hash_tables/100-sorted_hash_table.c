@@ -286,8 +286,7 @@ shash_node_t *screate_node(const char *key, const char *value)
 	new_node->key = strdup(key);
 	if (!new_node->key)
 	{
-		sfree_node(new_node);
-		return (NULL);
+		new_node->key = strdup("(null)");
 	}
 	if (!value)
 		new_node->value = "";
