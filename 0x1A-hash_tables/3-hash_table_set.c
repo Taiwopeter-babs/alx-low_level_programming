@@ -18,13 +18,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = key_index((unsigned char *) key, ht->size);
 	if (!ht)
 	{
+		free_table(ht);
 		return (0);
 	}
 
 	/* create node to add */
 	new_node = create_node(key, value);
 	if (!new_node)
+	{
+		free_node(new_node);
 		return (0);
+	}
 
 	/* check if index is occupied */
 	current_node = ht->array[index];
