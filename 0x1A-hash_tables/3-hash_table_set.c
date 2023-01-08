@@ -123,7 +123,7 @@ hash_node_t *create_node(const char *key, const char *value)
 		return (NULL);
 	}
 	new_node->key = strdup(key);
-	
+
 	if (value == NULL)
 		new_node->value = strdup("(null)");
 	else
