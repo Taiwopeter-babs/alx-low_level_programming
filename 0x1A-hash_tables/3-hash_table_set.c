@@ -15,6 +15,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (!ht)
 	{
+		free(ht);
 		return (0);
 	}
 
@@ -26,6 +27,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!new_node)
 	{
 		free_node(new_node);
+		free_table(ht);
 		return (0);
 	}
 
