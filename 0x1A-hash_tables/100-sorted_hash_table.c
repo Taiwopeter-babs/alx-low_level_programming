@@ -25,6 +25,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 	new_table->array = calloc(new_table->size, sizeof(shash_node_t *));
 	if (!(new_table->array))
 	{
+		free(new_table->array);
 		sfree_table(new_table);
 		return (NULL);
 	}
@@ -50,11 +51,9 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	shash_node_t *new_node, *current_node;
 
 
-	/* get index */
-	index = key_index((unsigned char *) key, ht->size);
 	if (!ht)
 	{
-		sfree_table(ht);
+		free(ht);
 		return (0);
 	}
 
@@ -62,9 +61,11 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	new_node = screate_node(key, value);
 	if (!new_node)
 	{
-		sfree_node(new_node);
+		sfree_table(ht);
 		return (0);
 	}
+	/* get index */
+	index = key_index((unsigned char *) key, ht->size);
 
 	/* check if index is occupied */
 	current_node = ht->array[index];
@@ -190,12 +191,11 @@ void scollision_h(shash_table_t *ht, unsigned long int index, shash_node_t *node
  */
 shash_node_t *sadd_node_to_chain(shash_node_t *head, shash_node_t *node)
 {
-	shash_node_t *list_head, *temp;
+	shash_node_t *temp;
 
 	if (!head)
 	{
-		list_head = screate_node(node->key, node->value);
-		head = list_head;
+		head = node;
 		return (head);
 	}
 	else
@@ -250,6 +250,12 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 	unsigned long int index;
 	shash_node_t *node;
 
+	if (!ht)
+	{
+		free(ht);
+		return (NULL);
+	}
+
 	index = key_index((unsigned char *) key, ht->size);
 	if (index > ht->size)
 		return (NULL);
@@ -283,16 +289,16 @@ shash_node_t *screate_node(const char *key, const char *value)
 	new_node = malloc(sizeof(shash_node_t));
 	if (new_node == NULL)
 	{
-		sfree_node(new_node);
+		free(new_node);
 		return (NULL);
 	}
 	if (!key)
 	{
-		sfree_node(new_node);
+		free(new_node);
 		return (NULL);
 	}
-	else
-		new_node->key = strdup(key);
+	new_node->key = strdup(key);
+
 	if (!value)
 		new_node->value = strdup("(null)");
 	else
@@ -394,12 +400,13 @@ void sfree_table(shash_table_t *table)
 
 	for (idx = 0; idx < table->size; idx++)
 	{
-		sfree_linked_list(table->array[idx]);
+		if (table->array[idx])
+			sfree_linked_list(table->array[idx]);
 	}
 
 	/*free_slinked_list(table->shead);*/
-	
-	free(table->array);
+	if (table->array)
+		free(table->array);
 	free(table);
 }
 /**
