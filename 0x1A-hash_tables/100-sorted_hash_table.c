@@ -252,7 +252,6 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 
 	if (!ht)
 	{
-		free(ht);
 		return (NULL);
 	}
 
