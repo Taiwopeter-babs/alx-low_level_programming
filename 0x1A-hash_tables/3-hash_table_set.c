@@ -19,17 +19,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	}
 
-	/* get index */
-	index = key_index((unsigned char *) key, ht->size);
-
 	/* create node to add */
 	new_node = create_node(key, value);
 	if (!new_node)
 	{
-		free_node(new_node);
 		free_table(ht);
 		return (0);
 	}
+	/* get index */
+	index = key_index((unsigned char *) key, ht->size);
 
 	/* check if index is occupied */
 	current_node = ht->array[index];
@@ -115,12 +113,12 @@ hash_node_t *create_node(const char *key, const char *value)
 	new_node = malloc(sizeof(hash_node_t));
 	if (new_node == NULL)
 	{
-		free_node(new_node);
+		free(new_node);
 		return (NULL);
 	}
 	if (!key)
 	{
-		free_node(new_node);
+		free(new_node);
 		return (NULL);
 	}
 	new_node->key = strdup(key);
