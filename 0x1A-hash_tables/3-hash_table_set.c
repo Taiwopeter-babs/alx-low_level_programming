@@ -13,14 +13,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *new_node, *current_node;
 
+	if (!ht)
+	{
+		free(ht);
+		return (0);
+	}
 
 	/* get index */
 	index = key_index((unsigned char *) key, ht->size);
-	if (!ht)
-	{
-		free_table(ht);
-		return (0);
-	}
 
 	/* create node to add */
 	new_node = create_node(key, value);
@@ -68,24 +68,21 @@ void collision_h(hash_table_t *ht, unsigned long int index, hash_node_t *node)
  */
 hash_node_t *add_node_to_chain(hash_node_t *head, hash_node_t *node)
 {
-	hash_node_t *list_head, *temp;
+	hash_node_t *temp;
 
 	if (!head)
 	{
-		list_head = create_node(node->key, node->value);
-		head = list_head;
+		head = node;
 		return (head);
 	}
-
 	else
 	{
 		temp = head;
 		while (temp)
 		{
 			if (strcmp(temp->key, node->key) == 0)
-			{
 				break;
-			}
+
 			temp = temp->next;
 		}
 		if (temp == NULL)
@@ -100,7 +97,6 @@ hash_node_t *add_node_to_chain(hash_node_t *head, hash_node_t *node)
 			free_node(node);
 		}
 	}
-
 	return (head);
 }
 
@@ -121,12 +117,13 @@ hash_node_t *create_node(const char *key, const char *value)
 		free_node(new_node);
 		return (NULL);
 	}
-	new_node->key = strdup(key);
 	if (!key)
 	{
 		free_node(new_node);
 		return (NULL);
 	}
+	new_node->key = strdup(key);
+	
 	if (value == NULL)
 		new_node->value = strdup("(null)");
 	else

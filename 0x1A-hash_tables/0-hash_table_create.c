@@ -14,7 +14,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 	new_table = malloc(sizeof(hash_table_t));
 	if (new_table == NULL)
 	{
-		free(new_table);
+		free_table(new_table);
 		return (NULL);
 	}
 
@@ -63,10 +63,11 @@ void free_table(hash_table_t *table)
 
 	for (idx = 0; idx < table->size; idx++)
 	{
-		free_linked_list(table->array[idx]);
+		if (table->array[idx])
+			free_linked_list(table->array[idx]);
 	}
-
-	free(table->array);
+	if (table->array)
+		free(table->array);
 	free(table);
 }
 /**
@@ -76,7 +77,9 @@ void free_table(hash_table_t *table)
  */
 void free_node(hash_node_t *node)
 {
-	free(node->key);
-	free(node->value);
+	if (node->key)
+		free(node->key);
+	if (node->value)
+		free(node->value);
 	free(node);
 }
