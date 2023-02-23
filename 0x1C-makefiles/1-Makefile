@@ -1,7 +1,5 @@
 CC = gcc
-SRC = $(wildcard *.c)
-
-.PHONY: all
+SRC = main.c school.c
 
 all: $(SRC)
-	$(CC) $^ -o school
+	$(CC) $(SRC) -o school
