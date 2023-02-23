@@ -4,4 +4,4 @@ SRC = $(wildcard *.c)
 .PHONY: all
 
 all: $(SRC)
-	$(CC) $(SRC) -o school
+	$(CC) $^ -o school
