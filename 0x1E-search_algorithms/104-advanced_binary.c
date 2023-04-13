@@ -41,8 +41,16 @@ int binary_recur(int *array, size_t start, size_t mid, size_t end, int value)
 
 	if (array[mid] == value)
 	{
+		/**
+		 * if the preceeding element in the array != value,
+		 * it means the middle element is the first of its type
+		 */
 		if (array[mid - 1] != value)
 			return (mid);
+		/**
+		 * otherwise perform the recursive search for the
+		 * first of the element's type by going down the array
+		 */
 		end = mid;
 		mid = (start + end) / 2;
 		print_array(array, start, end);
