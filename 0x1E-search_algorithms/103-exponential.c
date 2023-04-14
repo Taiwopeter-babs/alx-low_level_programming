@@ -11,7 +11,7 @@ void print_array(int *array, size_t start, size_t end);
  */
 int exponential_search(int *array, size_t size, int value)
 {
-	size_t start, end, half, mid, bound = 1;
+	size_t start, end, half, mid, bound;
 	char *str;
 
 	str = "Value found between indexes";
@@ -19,7 +19,8 @@ int exponential_search(int *array, size_t size, int value)
 	if (!array)
 		return (-1);
 
-	while (bound <= size && array[bound] <= value)
+	bound = 1;
+	while (bound < size)
 	{
 		/**
 		 * Only print the index and value when the bound
@@ -36,6 +37,9 @@ int exponential_search(int *array, size_t size, int value)
 		 */
 		if (bound > size)
 			bound = size - 1;
+		/* if the element at the last index == value */
+		if (array[bound] == value)
+			return (bound);
 		/**
 		 * if the element in the bound index is within the range
 		 * of value and the bound is < size
@@ -43,15 +47,14 @@ int exponential_search(int *array, size_t size, int value)
 		if (array[bound] >= value && bound < size)
 		{
 			half = (bound / 2);
-			if (array[bound] == value)
-				return (bound);
 			printf("%s [%lu] and [%lu]\n", str, half, bound);
+			break;
 		}
 		/**
 		 *  The bound is at the limit and the element is still lower than
 		 * the target value
 		 */
-		else if (array[bound] < value && bound >= size)
+		else if (array[bound] != value && bound >= size)
 		{
 			bound = size - 1;
 			half = (bound / 2) + 1;
@@ -61,6 +64,8 @@ int exponential_search(int *array, size_t size, int value)
 	}
 	start = half;
 	end = bound;
+	if (end > size)
+		end = size - 1;
 	mid = (start + end) / 2;
 
 	print_array(array, half, end);
@@ -79,12 +84,9 @@ int exponential_search(int *array, size_t size, int value)
  */
 int binary_recur(int *array, size_t start, size_t mid, size_t end, int value)
 {
-	size_t pos;
-
-	if (start >= end || end <= start)
+	if (start == end && array[end] != value)
 	{
-		if (array[start] != value || array[end] != value)
-			return (-1);
+		return (-1);
 	}
 	if (array[mid] == value)
 		return (mid);
@@ -93,16 +95,16 @@ int binary_recur(int *array, size_t start, size_t mid, size_t end, int value)
 		start = mid + 1;
 		mid = (start + end) / 2;
 		print_array(array, start, end);
-		pos = binary_recur(array, start, mid, end, value);
+		return (binary_recur(array, start, mid, end, value));
 	}
 	if (array[mid] > value)
 	{
 		end = mid - 1;
 		mid = (start + end) / 2;
 		print_array(array, start, end);
-		pos = binary_recur(array, start, mid, end, value);
+		return (binary_recur(array, start, mid, end, value));
 	}
-	return (pos);
+	return (-1);
 }
 
 /**
