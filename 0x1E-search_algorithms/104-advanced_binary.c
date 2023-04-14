@@ -17,7 +17,7 @@ int advanced_binary(int *array, size_t size, int value)
 		return (-1);
 
 	start = 0;
-	end = size - 1;
+	end = size;
 	mid = (start + end) / 2;
 	print_array(array, 0, size - 1);
 
@@ -36,7 +36,7 @@ int advanced_binary(int *array, size_t size, int value)
 int binary_recur(int *array, size_t start, size_t mid, size_t end, int value)
 {
 
-	if (start >= end || end <= start)
+	if (start == end && array[end] != value)
 		return (-1);
 
 	if (array[mid] == value)
@@ -63,9 +63,9 @@ int binary_recur(int *array, size_t start, size_t mid, size_t end, int value)
 		print_array(array, start, end);
 		return (binary_recur(array, start, mid, end, value));
 	}
-	if (array[mid] > value)
+	if (array[mid] >= value)
 	{
-		end = mid - 1;
+		end = mid;
 		mid = (start + end) / 2;
 		print_array(array, start, end);
 		return (binary_recur(array, start, mid, end, value));
