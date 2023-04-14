@@ -29,7 +29,7 @@ int jump_search(int *array, size_t size, int value)
 	while (jump < size)
 	{
 		if (value > array[jump])
-			printf("%s [%lu] = [%d]\n", cstr, jump, array[jump]);
+			printf("%s[%lu] = [%d]\n", cstr, jump, array[jump]);
 
 		if (value <= array[jump])
 		{
