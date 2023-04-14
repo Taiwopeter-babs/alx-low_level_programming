@@ -35,29 +35,29 @@ int binary_search(int *array, size_t size, int value)
  */
 int binary_recur(int *array, size_t start, size_t mid, size_t end, int value)
 {
-	size_t pos;
-
-	if (start >= end || end <= start)
+	if (start > end || end < start)
 		return (-1);
 
 	if (array[mid] == value)
+	{
 		return (mid);
+	}
 
 	if (array[mid] < value)
 	{
 		start = mid + 1;
 		mid = (start + end) / 2;
 		print_array(array, start, end);
-		pos = binary_recur(array, start, mid, end, value);
+		return (binary_recur(array, start, mid, end, value));
 	}
 	if (array[mid] > value)
 	{
 		end = mid - 1;
 		mid = (start + end) / 2;
 		print_array(array, start, end);
-		pos = binary_recur(array, start, mid, end, value);
+		return (binary_recur(array, start, mid, end, value));
 	}
-	return (pos);
+	return (-1);
 }
 
 /**
@@ -71,7 +71,6 @@ void print_array(int *array, size_t start, size_t end)
 {
 	size_t i;
 	char *sep = "";
-
 
 	printf("Searching in array: ");
 	i = start;
