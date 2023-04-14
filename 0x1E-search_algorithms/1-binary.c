@@ -35,7 +35,11 @@ int binary_search(int *array, size_t size, int value)
  */
 int binary_recur(int *array, size_t start, size_t mid, size_t end, int value)
 {
-	if (start > end || end < start)
+	/**
+	 * if start > end or end < start, the index of the array has
+	 * been exceeded and function failed to find the target value
+	 */
+	if (start == end && array[end] != value)
 		return (-1);
 
 	if (array[mid] == value)
